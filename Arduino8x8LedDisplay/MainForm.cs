@@ -26,7 +26,7 @@ namespace Arduino8x8LedDisplay
         private SerialPort _arduinoPort;
         private ArduinoStatus _status;
         private int _count = 8;
-        private int _size = 20;
+        private int _size = 25;
         private Bitmap _image;
         private bool[,] _pixels;
 
