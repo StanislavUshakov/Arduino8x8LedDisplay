@@ -96,7 +96,7 @@ namespace Arduino8x8LedDisplay
             {
                 for (int i = 0; i < tbInput.Text.Length; i++)
                 {
-                    Clear();
+                    Fill(false);
                     PrintCharacter(tbInput.Text[i]);
                     Thread.Sleep(500);
                 }
@@ -116,7 +116,12 @@ namespace Arduino8x8LedDisplay
 
         private void btClear_Click(object sender, EventArgs e)
         {
-            Clear();
+            Fill(false);
+        }
+
+        private void btFill_Click(object sender, EventArgs e)
+        {
+            Fill(true);
         }
 
         #endregion
@@ -131,6 +136,7 @@ namespace Arduino8x8LedDisplay
                     lbStatus.Text = "Status: Successfully connected";
                     btConnect.Enabled = false;
                     btClear.Enabled = true;
+                    btFill.Enabled = true;
                     btDisconnect.Enabled = true;
                     tbInput.Enabled = true;
                     btPrint.Enabled = true;
@@ -144,6 +150,7 @@ namespace Arduino8x8LedDisplay
                     lbStatus.Text = "Status: Disconnected";
                     btConnect.Enabled = true;
                     btClear.Enabled = false;
+                    btFill.Enabled = false;
                     btDisconnect.Enabled = false;
                     tbInput.Enabled = false;
                     btPrint.Enabled = false;
@@ -230,13 +237,13 @@ namespace Arduino8x8LedDisplay
             }
         }
 
-        private void Clear()
+        private void Fill(bool isOn)
         {
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    SetPixel(i, j, false);
+                    SetPixel(i, j, isOn);
                 }
             }
         }
@@ -250,6 +257,6 @@ namespace Arduino8x8LedDisplay
             _pixelFont = fontFamilies[0];
         }
 
-        #endregion       
+        #endregion
     }
 }
