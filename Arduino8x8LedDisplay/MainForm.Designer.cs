@@ -226,7 +226,7 @@
             this.Controls.Add(this.btConnect);
             this.Controls.Add(this.cbAvailablePorts);
             this.Name = "MainForm";
-            this.Text = "Arduino Dimmer";
+            this.Text = "Arduino 8x8 LED Controller";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbGrid)).EndInit();
             this.ResumeLayout(false);
