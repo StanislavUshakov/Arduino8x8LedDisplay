@@ -218,11 +218,11 @@ namespace Arduino8x8LedDisplay
         private void PrintCharacter(char ch)
         {
             //use pixel font
-           Font regFont = new Font(_pixelFont, 8, FontStyle.Regular, GraphicsUnit.Pixel);
-           Bitmap t = new Bitmap(8, 8);
-           Graphics g = Graphics.FromImage(t);
-           PointF pointF = new PointF(0, -1);
-           g.DrawString(ch.ToString(), regFont, new SolidBrush(Color.Black), pointF);
+            Font regFont = new Font(_pixelFont, 8, FontStyle.Regular, GraphicsUnit.Pixel);
+            Bitmap t = new Bitmap(8, 8);
+            Graphics g = Graphics.FromImage(t);
+            PointF pointF = new PointF(0, -1);
+            g.DrawString(ch.ToString(), regFont, new SolidBrush(Color.Black), pointF);
 
             for (int i = 0; i < 8; i++)
             {
