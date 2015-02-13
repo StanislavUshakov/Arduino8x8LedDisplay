@@ -31,7 +31,7 @@ namespace Arduino8x8LedDisplay
         private bool[,] _pixels;
 
         //fonts
-        private FontFamily _pixelFont;
+        private FontFamily _pixelFontFamily;
 
         public MainForm()
         {
@@ -218,20 +218,24 @@ namespace Arduino8x8LedDisplay
         private void PrintCharacter(char ch)
         {
             //use pixel font
-            Font regFont = new Font(_pixelFont, 8, FontStyle.Regular, GraphicsUnit.Pixel);
-            Bitmap t = new Bitmap(8, 8);
-            Graphics g = Graphics.FromImage(t);
-            PointF pointF = new PointF(0, -1);
-            g.DrawString(ch.ToString(), regFont, new SolidBrush(Color.Black), pointF);
-
-            for (int i = 0; i < 8; i++)
+            Font pixelFont = new Font(_pixelFontFamily, _count, FontStyle.Regular, GraphicsUnit.Pixel);
+            using (var bitmap = new Bitmap(_count, _count))
             {
-                for (int j = 0; j < 8; j++)
+                using (var graphics = Graphics.FromImage(bitmap))
                 {
-                    var p = t.GetPixel(i, j);
-                    if (t.GetPixel(i, j).A == 255)
+                    PointF pointF = new PointF(0, -1);
+                    graphics.DrawString(ch.ToString(), pixelFont, new SolidBrush(Color.Black), pointF);
+                }
+
+                for (int i = 0; i < _count; i++)
+                {
+                    for (int j = 0; j < _count; j++)
                     {
-                        SetPixel(i, j);
+                        var p = bitmap.GetPixel(i, j);
+                        if (bitmap.GetPixel(i, j).A == 255)
+                        {
+                            SetPixel(i, j);
+                        }
                     }
                 }
             }
@@ -254,7 +258,7 @@ namespace Arduino8x8LedDisplay
             PrivateFontCollection privateFontCollection = new PrivateFontCollection();
             privateFontCollection.AddFontFile(Directory.GetCurrentDirectory() + "\\Resources\\Minecraftia-Regular.ttf");
             fontFamilies = privateFontCollection.Families;
-            _pixelFont = fontFamilies[0];
+            _pixelFontFamily = fontFamilies[0];
         }
 
         #endregion
