@@ -42,6 +42,7 @@
             this.lbCircuit = new System.Windows.Forms.Label();
             this.linkArudinoCircuit = new System.Windows.Forms.LinkLabel();
             this.lbCllick = new System.Windows.Forms.Label();
+            this.btClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +88,7 @@
             // lbHelp
             // 
             this.lbHelp.AutoSize = true;
-            this.lbHelp.Location = new System.Drawing.Point(12, 302);
+            this.lbHelp.Location = new System.Drawing.Point(12, 332);
             this.lbHelp.Name = "lbHelp";
             this.lbHelp.Size = new System.Drawing.Size(170, 13);
             this.lbHelp.TabIndex = 6;
@@ -96,7 +97,7 @@
             // lbCopyright
             // 
             this.lbCopyright.AutoSize = true;
-            this.lbCopyright.Location = new System.Drawing.Point(377, 399);
+            this.lbCopyright.Location = new System.Drawing.Point(377, 429);
             this.lbCopyright.Name = "lbCopyright";
             this.lbCopyright.Size = new System.Drawing.Size(138, 13);
             this.lbCopyright.TabIndex = 7;
@@ -134,7 +135,7 @@
             // lbLink
             // 
             this.lbLink.AutoSize = true;
-            this.lbLink.Location = new System.Drawing.Point(12, 327);
+            this.lbLink.Location = new System.Drawing.Point(12, 357);
             this.lbLink.Name = "lbLink";
             this.lbLink.Size = new System.Drawing.Size(495, 13);
             this.lbLink.TabIndex = 5;
@@ -154,7 +155,7 @@
             // lbCircuit
             // 
             this.lbCircuit.AutoSize = true;
-            this.lbCircuit.Location = new System.Drawing.Point(12, 355);
+            this.lbCircuit.Location = new System.Drawing.Point(12, 385);
             this.lbCircuit.Name = "lbCircuit";
             this.lbCircuit.Size = new System.Drawing.Size(174, 13);
             this.lbCircuit.TabIndex = 13;
@@ -163,7 +164,7 @@
             // linkArudinoCircuit
             // 
             this.linkArudinoCircuit.AutoSize = true;
-            this.linkArudinoCircuit.Location = new System.Drawing.Point(12, 380);
+            this.linkArudinoCircuit.Location = new System.Drawing.Point(12, 410);
             this.linkArudinoCircuit.Name = "linkArudinoCircuit";
             this.linkArudinoCircuit.Size = new System.Drawing.Size(503, 13);
             this.linkArudinoCircuit.TabIndex = 12;
@@ -180,11 +181,23 @@
             this.lbCllick.TabIndex = 14;
             this.lbCllick.Text = "Click on separate pixels to turn them on/off";
             // 
+            // btClear
+            // 
+            this.btClear.Enabled = false;
+            this.btClear.Location = new System.Drawing.Point(12, 295);
+            this.btClear.Name = "btClear";
+            this.btClear.Size = new System.Drawing.Size(75, 23);
+            this.btClear.TabIndex = 15;
+            this.btClear.Text = "Clear";
+            this.btClear.UseVisualStyleBackColor = true;
+            this.btClear.Click += new System.EventHandler(this.btClear_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 420);
+            this.ClientSize = new System.Drawing.Size(519, 452);
+            this.Controls.Add(this.btClear);
             this.Controls.Add(this.lbCllick);
             this.Controls.Add(this.lbCircuit);
             this.Controls.Add(this.linkArudinoCircuit);
@@ -224,6 +237,7 @@
         private System.Windows.Forms.Label lbCircuit;
         private System.Windows.Forms.LinkLabel linkArudinoCircuit;
         private System.Windows.Forms.Label lbCllick;
+        private System.Windows.Forms.Button btClear;
 
     }
 }

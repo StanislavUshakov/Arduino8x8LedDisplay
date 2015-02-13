@@ -114,6 +114,11 @@ namespace Arduino8x8LedDisplay
             SetPixel(x, y);
         }
 
+        private void btClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
         #endregion
 
         #region Private Methods
@@ -125,6 +130,7 @@ namespace Arduino8x8LedDisplay
                 case ArduinoStatus.Connected:
                     lbStatus.Text = "Status: Successfully connected";
                     btConnect.Enabled = false;
+                    btClear.Enabled = true;
                     btDisconnect.Enabled = true;
                     tbInput.Enabled = true;
                     btPrint.Enabled = true;
@@ -137,6 +143,7 @@ namespace Arduino8x8LedDisplay
                 case ArduinoStatus.Disconnected:
                     lbStatus.Text = "Status: Disconnected";
                     btConnect.Enabled = true;
+                    btClear.Enabled = false;
                     btDisconnect.Enabled = false;
                     tbInput.Enabled = false;
                     btPrint.Enabled = false;
@@ -243,6 +250,6 @@ namespace Arduino8x8LedDisplay
             _pixelFont = fontFamilies[0];
         }
 
-        #endregion
+        #endregion       
     }
 }
